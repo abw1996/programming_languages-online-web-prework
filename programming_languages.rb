@@ -4,10 +4,13 @@ def reformat_languages(languages)
   languages.each do |style, language|
     language.each do |lang, data|
       if new_language_hash.has_key?(lang)
-      new_language_hash[lang] = data
-      new_language_hash[lang][:style] = []
-      new_language_hash[lang][:style].push(style)
-      binding.pry
+        new_language_hash[lang][:style].push(style)
+      else 
+        new_language_hash[lang] = data
+        new_language_hash[lang][:style] = []
+        new_language_hash[lang][:style].push(style)
+      end
     end 
-  end 
+  end
+  new_language_hash
 end
